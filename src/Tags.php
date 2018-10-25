@@ -69,6 +69,19 @@ class Tags extends Field
     }
 
     /**
+     * Hide selected options from the list
+     *
+     * @param $value
+     * @return $this
+     */
+    public function hideOnSelect($value)
+    {
+        $this->withMeta(['hideOnSelect' => $value]);
+
+        return $this;
+    }
+
+    /**
      * The key that should be used for display items.
      *
      * @param $key

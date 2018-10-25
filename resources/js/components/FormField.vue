@@ -3,6 +3,7 @@
     <template slot="field">
       <Multiselect
         v-model="value"
+        :hide-on-select="hideOnSelect"
         :tag-placeholder="tagPlaceholder"
         :placeholder="placeholder"
         :label="label"
@@ -41,6 +42,10 @@ export default {
   },
 
   computed: {
+    hideOnSelect() {
+      return this.field.hideOnSelect || false;
+    },
+
     key() {
       return this.field.valueKey || 'id';
     },
