@@ -10,7 +10,7 @@
         :track-by="key"
         :options="availableResources"
         :multiple="true"
-        :taggable="true"
+        :taggable="isTaggable"
         @tag="addTag"
       />
 
@@ -42,6 +42,10 @@ export default {
   },
 
   computed: {
+    isTaggable () {
+      return this.field.isTaggable || true;
+    },
+    
     hideOnSelect() {
       return this.field.hideOnSelect || false;
     },

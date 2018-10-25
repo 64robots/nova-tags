@@ -69,6 +69,19 @@ class Tags extends Field
     }
 
     /**
+     * Taggable or not
+     *
+     * @param $value
+     * @return $this
+     */
+    public function isTaggable($value)
+    {
+        $this->withMeta(['isTaggable' => $value]);
+
+        return $this;
+    }
+
+    /**
      * Hide selected options from the list
      *
      * @param $value
