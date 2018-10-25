@@ -3,8 +3,7 @@
     <template slot="field">
       <Multiselect
         v-model="value"
-        :hide-on-select="hideOnSelect"
-        :tag-placeholder="tagPlaceholder"
+        :hide-selected="hideOnSelect"
         :placeholder="placeholder"
         :label="label"
         :track-by="key"
@@ -41,13 +40,21 @@ export default {
     };
   },
 
+  mounted () {
+    console.log(this.field, this.hideOnSelect)
+  },
+
   computed: {
     isTaggable () {
-      return this.field.isTaggable || true;
+      return this.field.isTaggable === undefined
+        ? true
+        : this.field.isTaggable
     },
     
     hideOnSelect() {
-      return this.field.hideOnSelect || false;
+      return this.field.hideOnSelect === undefined
+        ? true
+        : this.field.hideOnSelect
     },
 
     key() {
